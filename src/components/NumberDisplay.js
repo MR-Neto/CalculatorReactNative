@@ -1,12 +1,22 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { DisplayText } from './Text'
+import styled from 'styled-components/native'
 
-const NumberDisplay = () => {
+const NumberDisplay = ({ displayText }) => {
     return (
-        <View>
-            <Text />
-        </View>
+        <Container>
+            <DisplayText>{displayText}</DisplayText>
+        </Container>
     )
 }
+
+const Container = styled(View)`
+    width: 100%;
+    flex: 2;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+`
 
 export default NumberDisplay
