@@ -22,3 +22,11 @@ export const DisplayText = styled(TextComponentStyled)`
     font-size: 50px;
     text-align: right;
 `
+
+export const SecondaryDisplayText = styled(DisplayText)`
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 25px;
+
+`

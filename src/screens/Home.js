@@ -11,7 +11,7 @@ const Home = () => {
     const [state, dispatch] = useReducer(reducer, initialState)
     return (
         <Container>
-            <NumberDisplay displayText={state.number} />
+            <NumberDisplay state={state} />
             <Grid dispatch={dispatch} operation={state.operation} />
         </Container>
     )

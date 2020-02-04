@@ -1,17 +1,20 @@
 import React from 'react'
 import { View } from 'react-native'
-import { DisplayText } from './Text'
+import { DisplayText, SecondaryDisplayText } from './Text'
 import styled from 'styled-components/native'
 
-const NumberDisplay = ({ displayText }) => {
+const NumberDisplay = ({ state }) => {
+    const { previousNumber, number, operation } = state
     return (
         <Container>
-            <DisplayText>{displayText}</DisplayText>
+            {operation && previousNumber && <SecondaryDisplayText>{`${previousNumber} ${operation}`}</SecondaryDisplayText>}
+            <DisplayText>{number}</DisplayText>
         </Container>
     )
 }
 
 const Container = styled(View)`
+    position: relative;
     width: 100%;
     flex: 2;
     justify-content: center;
