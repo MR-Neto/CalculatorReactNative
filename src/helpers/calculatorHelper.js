@@ -1,14 +1,22 @@
 export const calculate = ({ previousNumber, number, operation }) => {
+    let returnValue
     switch (operation) {
         case '/':
-            return Math.round(String(Number(previousNumber) / Number(number)) * 10000) / 10000
+            returnValue = Number(previousNumber) / Number(number)
+            break
         case 'x':
-            return Math.round(String(Number(previousNumber) * Number(number)) * 10000) / 10000
+            returnValue = Number(previousNumber) * Number(number)
+            break
         case '-':
-            return Math.round(String(Number(previousNumber) - Number(number)) * 10000) / 10000
+            returnValue = Number(previousNumber) - Number(number)
+            break
         case '+':
-            return Math.round(String(Number(previousNumber) + Number(number)) * 10000) / 10000
+            returnValue = Number(previousNumber) + Number(number)
+            break
         default:
             return ''
     }
+    return String(roundDecimalPlaces(returnValue, 5))
 }
+
+const roundDecimalPlaces = (number, numberDecimals) => Math.round(number * (10 ^ numberDecimals)) / (10 ^ numberDecimals)
