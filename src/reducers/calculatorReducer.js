@@ -11,9 +11,12 @@ export const reducer = (state, action) => {
         case 'setNumber':
             return { ...state, number: state.number + action.newNumber }
         case 'setOperation':
-            return { operation: action.operation, number: '', previousNumber: state.number }
+            if (state.number.length > 0) {
+                return { operation: action.operation, number: '', previousNumber: state.number }
+            } else {
+                return initialState
+            }
         case 'calculate':
-            console.log('result:', calculate(state))
             return { ...initialState, number: calculate(state) }
         case 'clear':
             return initialState
