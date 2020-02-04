@@ -2,7 +2,7 @@ import React from 'react'
 import { ButtonCalculator } from './Button'
 import { Row } from './View'
 
-const Grid = ({ dispatch }) => {
+const Grid = ({ operation, dispatch }) => {
 
     return (
         <>
@@ -10,7 +10,7 @@ const Grid = ({ dispatch }) => {
                 <ButtonCalculator onPress={() => dispatch({ type: 'clear' })} flex={3}>
                     C
                 </ButtonCalculator>
-                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: '/' })} isOperation flex={1}>
+                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: '/' })} isOperation operation={operation} flex={1}>
                     /
                 </ButtonCalculator>
             </Row>
@@ -24,8 +24,8 @@ const Grid = ({ dispatch }) => {
                 <ButtonCalculator onPress={() => dispatch({ type: 'setNumber', newNumber: '9' })} flex={1}>
                     9
                 </ButtonCalculator>
-                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: 'X' })} isOperation flex={1}>
-                    X
+                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: 'x' })} isOperation operation={operation} flex={1}>
+                    x
                 </ButtonCalculator>
             </Row>
             <Row>
@@ -38,7 +38,7 @@ const Grid = ({ dispatch }) => {
                 <ButtonCalculator onPress={() => dispatch({ type: 'setNumber', newNumber: '4' })} flex={1}>
                     4
                 </ButtonCalculator>
-                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: '-' })} isOperation flex={1}>
+                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: '-' })} isOperation operation={operation} flex={1}>
                     -
                 </ButtonCalculator>
             </Row>
@@ -52,7 +52,7 @@ const Grid = ({ dispatch }) => {
                 <ButtonCalculator onPress={() => dispatch({ type: 'setNumber', newNumber: '3' })} flex={1}>
                     3
                 </ButtonCalculator>
-                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: '+' })} isOperation flex={1}>
+                <ButtonCalculator onPress={() => dispatch({ type: 'setOperation', operation: '+' })} isOperation operation={operation} flex={1}>
                     +
                 </ButtonCalculator>
             </Row>
