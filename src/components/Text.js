@@ -13,7 +13,7 @@ const TextComponentStyled = styled(Text)`
 export default TextComponentStyled
 
 export const ButtonText = styled(TextComponentStyled)`
-    color: ${ColorConfig.white};
+    color: ${({ isOperation }) => isOperation ? ColorConfig.white : ColorConfig.black};
     text-align: center;
 `
 
