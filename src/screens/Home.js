@@ -1,12 +1,29 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useReducer } from 'react'
+import { SafeAreaView } from 'react-native'
+import NumberDisplay from '../components/NumberDisplay'
+import Grid from '../components/Grid'
+
+import styled from 'styled-components/native'
+import ColorConfig from '../configs/ColorConfig'
+import { initialState, reducer } from '../reducers/calculatorReducer'
 
 const Home = () => {
+    const [state, dispatch] = useReducer(reducer, initialState)
+    console.log(state)
     return (
-        <View>
-            <Text />
-        </View>
+        <Container>
+            <NumberDisplay displayText={state.number} />
+            <Grid dispatch={dispatch} />
+        </Container>
     )
 }
+
+const Container = styled(SafeAreaView)`
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: ${ColorConfig.black};
+`
 
 export default Home
