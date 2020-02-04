@@ -9,11 +9,10 @@ import { initialState, reducer } from '../reducers/calculatorReducer'
 
 const Home = () => {
     const [state, dispatch] = useReducer(reducer, initialState)
-    console.log(state)
     return (
         <Container>
             <NumberDisplay displayText={state.number} />
-            <Grid dispatch={dispatch} />
+            <Grid dispatch={dispatch} operation={state.operation} />
         </Container>
     )
 }
